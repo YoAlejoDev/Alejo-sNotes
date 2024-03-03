@@ -1,0 +1,26 @@
+:root{
+    --main-color-txt: #00dbd0;
+    --white: #fff;
+}
+
+.main-container{
+    padding: 50px;
+
+    & .image-container{
+
+    }
+
+    & .information-container{
+        & h3{
+            color: var(--main-color-txt);
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        & p{
+            color: var(--white);
+            text-align: center;
+        }
+    }
+}

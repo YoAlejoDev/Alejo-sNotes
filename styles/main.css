@@ -5,6 +5,7 @@
     --bg-lenguages: #2b312f;
     --be-color: #15a61c;
     --tec-color: #bbb010;
+    --black: #000000;
 }
 
 *,
@@ -87,6 +88,18 @@ section{
 
 .tech{
     color: var(--tec-color) !important;
+}
+
+footer{
+    background: #000;
+    display: flex;
+    height: 20vh;
+    justify-content: space-around;
+    align-items: center;
+
+    & .footer-content{
+        color: white;
+    }
 }
 
 /*Animations*/
