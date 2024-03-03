@@ -12,10 +12,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // URL'S
-
-// Define a route to render the HTML file
 app.get('/', (req, res) => {
-  res.render('index'); // Assuming you have an "index.ejs" file in the "views" directory
+  res.render('index');
 });
 
 app.get('/aboutme', (req, res) => {
@@ -25,6 +23,11 @@ app.get('/aboutme', (req, res) => {
 app.get('/projects', (req, res) => {
     res.render('proyectos');
 });
+
+app.get('/comments', (req, res) => {
+  res.render('comments');
+})
+
 
 // Start the server
 app.listen(3000, () => {

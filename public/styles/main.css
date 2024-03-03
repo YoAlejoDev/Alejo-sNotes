@@ -15,8 +15,16 @@
 }
 
 body{
-    height: 300vh;
+    height: 100vh;
     background-color: var(--bg-main);
+}
+
+.body-main{
+    height: 300vh;
+}
+
+.main-container{
+    min-height: 80vh;
 }
 
 section{

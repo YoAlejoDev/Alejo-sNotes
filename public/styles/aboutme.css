@@ -3,8 +3,14 @@
     --white: #fff;
 }
 
+body{
+    height: 80vh !important;
+}
+
 .main-container{
     padding: 50px;
+    display: flex;
+    align-items: center;
 
     & .image-container{
         width: fit-content;
