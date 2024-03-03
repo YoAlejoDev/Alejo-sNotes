@@ -1,0 +1,150 @@
+:root{
+    --white: #fff;
+    --main-color-txt: #00dbd0;
+    --bg-main: #232827;
+    --bg-lenguages: #2b312f;
+    --be-color: #15a61c;
+    --tec-color: #bbb010;
+}
+
+*,
+*::after,
+*::before{
+    font-family: "Encode Sans Semi Expanded", sans-serif;
+}
+
+body{
+    height: 300vh;
+    background-color: var(--bg-main);
+}
+
+section{
+    min-height: 90vh;
+    overflow-x: hidden;
+}
+
+.navbar-brand{
+    color: var(--white);
+}
+
+.navbar-brand:hover{
+    color: var(--white);
+}
+
+.nav-link{
+    color: var(--white);
+}
+
+#navbarNavAltMarkup{
+    justify-content: flex-end;
+}
+
+.info1_container{
+    display: flex;
+    padding: 10px 30px;
+
+    & .text_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 70vh;
+
+        & h3{
+            font-weight: 600;
+            text-align: center;
+            font-size: 40px;
+            color: var(--main-color-txt);
+        }
+
+        & p{
+            text-align: center;
+            color: var(--white);
+            font-size: 20px;
+        }
+    }
+}
+
+.tag-list{
+    max-width: 80%;
+
+    & li{
+        color: var(--white);
+        list-style: none;
+        background-color: var(--bg-lenguages);
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
+
+.sec-3{
+    & .text_container{
+        & h3{
+            color: var(--be-color);
+        }
+    }
+}
+
+.tech{
+    color: var(--tec-color) !important;
+}
+
+/*Animations*/
+
+section .animate{
+    transition: 0.7s;
+}
+
+.sec-1 .animate{
+    transform: translateX(-150%);
+}
+
+.sec-1.show-animate .animate{
+    transform: translateX(0%);
+}
+
+.sec-3 .animate{
+    transform: translateX(150%);
+}
+
+.sec-3.show-animate .animate{
+    transform: translateX(0%);
+}
+
+.scroller_inner{
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
+    overflow: hidden;
+
+    -webkit-mask: linear-gradient(
+        90deg, 
+        transparent, 
+        white 20%, 
+        white 80%, 
+        transparent
+    );
+    mask: linear-gradient(
+        90deg, 
+        transparent, 
+        white 20%, 
+        white 80%, 
+        transparent
+    );
+}
+
+.scroller[data-animated="true"] .scroller_inner{
+    width: fit-content;
+    flex-wrap: nowrap;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
+}
