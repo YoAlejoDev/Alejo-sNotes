@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const db = require('./public/javascript/db');
+
 const app = express();
 
 // Set EJS as the view engine
@@ -26,10 +28,18 @@ app.get('/projects', (req, res) => {
 
 app.get('/comments', (req, res) => {
   res.render('comments');
-})
-
+});
 
 // Start the server
 app.listen(3000, () => {
   console.log('Server started on http://localhost:3000');
 });
+
+// Check if my sql server is active or not
+app.get('/getMySqlStatus', (req, res) => {
+  database.ping((err) => {
+    if (err) return res.status(500).send("My SQL Server is down");
+
+    res.send("My SQL is Active");
+  })
+})
