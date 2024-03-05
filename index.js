@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
 const db = require('./public/javascript/db');
+const spawn = require('child_process').spawn;
+const pythonProcess = spawn('python', [main.script_python.py]);
 
+let pythonResponse = '';
 const app = express();
 
 // Set EJS as the view engine
