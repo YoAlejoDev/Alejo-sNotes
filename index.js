@@ -2,9 +2,7 @@ const express = require('express');
 const path = require('path');
 const db = require('./public/javascript/db');
 const spawn = require('child_process').spawn;
-const pythonProcess = spawn('python', [main.script_python.py]);
 
-let pythonResponse = '';
 const app = express();
 
 // Set EJS as the view engine
@@ -29,7 +27,11 @@ app.get('/projects', (req, res) => {
     res.render('proyectos');
 });
 
-app.get('/comments', (req, res) => {
+app.get('/comments', async (req, res) => {
+  const connection = await db.conn();
+  const result = await connection.query("SELECT * FROM comentarios_usuarios");
+  console.log(result);
+
   res.render('comments');
 });
 
