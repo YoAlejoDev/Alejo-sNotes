@@ -1,19 +1,19 @@
 const express = require('express');
 const path = require('path');
-const db = require('./public/javascript/db');
 const spawn = require('child_process').spawn;
 const cors = require('cors');
 const morgan = require('morgan');
 const mysql = require('promise-mysql');
 const app = express();
 
+// Start Server
+
 app.set('port', 4000);
 app.listen(app.get("port"));
 console.log("Escuchando comunicaciones del servidor en el puerto " + app.get("port"));
 
-const whiteList = ['http://127.0.0.1:3000']
-
 // Set EJS as the view engine
+
 app.set('view engine', 'ejs');
 
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +21,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middlewares
+
+const whiteList = ['http://127.0.0.1:3000']
 
 const corsOpts = {
   origin: 'http://127.0.0.1:3000',
@@ -56,7 +58,8 @@ app.use(cors({
   origin: whiteList
 }));
 
-// URL'S
+// URL'S - endpoints
+
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -74,22 +77,25 @@ app.get('/comments', (req, res) => {
 });
 
 app.get("/productos",async (req, res) => {
-  const connection = await db.getConnection();
-
-  // Query
-
-  // Get Table
-
+  const connection = await getConnection();
   const resultado = await connection.query("SELECT * FROM comentarios_usuarios");
-  console.log(resultado);
   res.json(resultado);
 });
+
+app.post('/comments/post', (req, res) => {
+  const nombre = req.body.nombre;
+  const comentario = req.body.comentario;
+
+  conn.query('INSERT INTO comentarios_usuarios values(?,?,?)', [nombre,comentario], (err) => {
+    if(err){
+      console.log(err);
+    } else {
+      res.send('POSTED')
+    }
+  })
+})
 
 // Start the server
 app.listen(3000, () => {
   console.log('Server started on http://localhost:3000');
 });
-
-module.exports = {
-  getConnection
-};
