@@ -9,6 +9,8 @@ La idea de este proyecto es poder publicar sobre mi conocimiento y poder enseña
 - CSS
 - JavaScript
 - npm
+- EJS
+- Git
 
 ## Funcionamiento de la aplicacion
 
