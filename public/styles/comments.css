@@ -1,7 +1,44 @@
+:root{
+    --white: #fff;
+    --bg-comment: #4d4d4d;
+    --bg-name-com: #2e2e2e;
+}
+
 body{
     height: 100vh;
 }
 
 .comments-people{
     height: 80vh;
+}
+
+.tarjeta-comentario{
+    color: var(--white);
+    padding: 20px;
+    margin: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--bg-comment);
+
+    & h3{
+        font-weight: bold;
+        background-color: var(--bg-name-com);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    & p{
+        padding: 10px;
+    }
+}
+
+.input-group{
+    padding: 10px 20px 5px 20px;
+}
+
+.form-floating{
+    padding: 0px 20px 10px 20px;
+}
+
+#sendButton{
+    margin: 10px 20px 20px 20px;
 }

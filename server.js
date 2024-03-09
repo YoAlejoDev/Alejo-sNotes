@@ -34,6 +34,8 @@ app.get("/productos",async (req, res) => {
 
     // Query
 
+    // Get Table
+
     const resultado = await connection.query("SELECT * FROM comentarios_usuarios");
     console.log(resultado);
     res.json(resultado);

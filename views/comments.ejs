@@ -20,9 +20,20 @@
         <%- include('../partials/navbar.html') %>
     </header>
     <main>
-        <div class="comments-people" id="comments-container">
-            
-        </div>
+        <section>
+            <div class="" id="commentsSection"></div>
+            <div class="inputContainer">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1"
+                    id="nombreUserNew">
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Comenta aqui" id="floatingTextarea"></textarea>
+                </div>
+                <button type="button" class="btn btn-success disabled" id="sendButton">Enviar</button>
+            </div>
+        </section>
     </main>
     <%- include('../partials/footer.html') %>
 
