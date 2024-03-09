@@ -4,6 +4,7 @@ const spawn = require('child_process').spawn;
 const cors = require('cors');
 const morgan = require('morgan');
 const mysql = require('promise-mysql');
+
 const app = express();
 
 // Start Server
@@ -96,6 +97,7 @@ app.post('/comments/post', (req, res) => {
 })
 
 // Start the server
+
 app.listen(3000, () => {
   console.log('Server started on http://localhost:3000');
 });

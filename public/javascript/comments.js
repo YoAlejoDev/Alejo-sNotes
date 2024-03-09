@@ -25,6 +25,8 @@ const getCommentsFront = () => {
     const comentContent = document.getElementById('floatingTextarea').value;
     const enviarBtn = document.getElementById('sendButton');
 
+    const resultado = JSON.stringify({"nombre":nombreComent,"comentario":comentContent});
+
 }
 
 console.log("getComments here");
