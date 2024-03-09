@@ -1,14 +1,14 @@
 const mysql = require('promise-mysql');
 
-const db_con = mysql.createConnection({
+const conn = mysql.createConnection({
     host: 'localhost',
     database: 'comentarios',
     user: 'root',
     password: 'root123',
 });
 
-const conn = async () => db_con;
+const getConnection = async () => conn;
 
 module.exports = {
-    conn
+    getConnection
 };

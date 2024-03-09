@@ -10,10 +10,8 @@ const app = express();
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 
-// Define the directory where your HTML files (views) are located
 app.set('views', path.join(__dirname, 'views'));
 
-// Optionally, you can define a static files directory (CSS, JS, images, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middlewares
