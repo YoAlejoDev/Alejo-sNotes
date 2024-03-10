@@ -58,6 +58,7 @@ app.use((req, res, next) => {
 app.use(cors({
   origin: whiteList
 }));
+app.use(express.json());
 
 // URL'S - endpoints
 
@@ -83,9 +84,9 @@ app.get("/productos",async (req, res) => {
   res.json(resultado);
 });
 
-app.post('/comments/post', (req, res) => {
-  const nombre = req.body.nombre;
-  const comentario = req.body.comentario;
+app.post('/comments', (req, res) => {
+  const nombre = req.body.nombreComentario;
+  const comentario = req.body.comentarioContenido;
 
   conn.query('INSERT INTO comentarios_usuarios values(?,?,?)', [nombre,comentario], (err) => {
     if(err){

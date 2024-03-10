@@ -8,10 +8,8 @@ window.onscroll = () => {
 
         if(top >= offset && top < offset + height){
             sec.classList.add('show-animate');
-            console.log("Se ve animation");
         } else {
             sec.classList.remove('show-animate');
-            console.log("No se ve animation");
         }
     })
 }
