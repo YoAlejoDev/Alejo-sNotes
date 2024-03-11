@@ -42,3 +42,13 @@ body{
 #sendButton{
     margin: 10px 20px 20px 20px;
 }
+
+#commentsSection{
+    max-height: 60vh;
+    scroll-behavior: smooth;
+    overflow: auto;
+}
+
+#commentsSection::-webkit-scrollbar{
+    background-color: transparent;
+}

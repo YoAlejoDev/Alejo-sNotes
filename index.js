@@ -59,6 +59,7 @@ app.use(cors({
   origin: whiteList
 }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // URL'S - endpoints
 
@@ -84,15 +85,17 @@ app.get("/productos",async (req, res) => {
   res.json(resultado);
 });
 
-app.post('/comments', (req, res) => {
-  const nombre = req.body.nombreComentario;
-  const comentario = req.body.comentarioContenido;
+app.post('/comments', async (req, res) => {
+  const inputNombre = req.body.nombreComentario;
+  const inputComentario = req.body.comentarioContenido;
+  const sql = 'INSERT INTO comentarios_usuarios VALUES (?,?)';
+  const connection = await getConnection();
 
-  conn.query('INSERT INTO comentarios_usuarios values(?,?,?)', [nombre,comentario], (err) => {
-    if(err){
-      console.log(err);
+  connection.query(sql, [inputNombre, inputComentario],(err, result) => {
+    if (err) {
+      console.error('Error al insertar datos en la base de datos:', err);
     } else {
-      res.send('POSTED')
+      console.log('Datos insertados correctamente en la base de datos');
     }
   })
 })
