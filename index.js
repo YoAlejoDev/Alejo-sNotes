@@ -4,6 +4,7 @@ const spawn = require('child_process').spawn;
 const cors = require('cors');
 const morgan = require('morgan');
 const mysql = require('promise-mysql');
+const uuid = require('uuid');
 
 const app = express();
 
@@ -88,16 +89,18 @@ app.get("/productos",async (req, res) => {
 app.post('/comments', async (req, res) => {
   const inputNombre = req.body.nombreComentario;
   const inputComentario = req.body.comentarioContenido;
-  const sql = 'INSERT INTO comentarios_usuarios VALUES (?,?)';
+  const sql = 'INSERT INTO comentarios_usuarios VALUES (?,?,?)';
   const connection = await getConnection();
 
-  connection.query(sql, [inputNombre, inputComentario],(err, result) => {
+  connection.query(sql, [uuid.v4(),inputNombre, inputComentario],(err, result) => {
     if (err) {
       console.error('Error al insertar datos en la base de datos:', err);
     } else {
       console.log('Datos insertados correctamente en la base de datos');
+      res.redirect('/comments');
     }
   })
+
 })
 
 // Start the server

@@ -30,7 +30,8 @@
     "mysql2": "^3.9.2",
     "path": "^0.12.7",
     "promise-mysql": "^5.2.0",
-    "python": "^0.0.4"
+    "python": "^0.0.4",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
