@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mysql = require('promise-mysql');
 const uuid = require('uuid');
+const env = require('dotenv').config()
 
 const app = express();
 
@@ -40,10 +41,10 @@ const corsOpts = {
 };
 
 const conn = mysql.createConnection({
-  host: 'localhost',
-  database: 'comentarios',
-  user: 'root',
-  password: 'root123',
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
 });
 
 const getConnection = async () => conn;
